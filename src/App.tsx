@@ -1,14 +1,7 @@
 import React, { useEffect } from 'react';
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
-import { AuthProvider } from './contexts/AuthContext';
 import { TixaeProvider } from './contexts/TixaeContext';
-import { ProtectedRoute } from './components/ProtectedRoute';
-import Login from './pages/admin/Login';
-import Dashboard from './pages/admin/Dashboard';
-import Demo1 from './pages/admin/Demo1';
-import Demo2 from './pages/admin/Demo2';
-import Kontaktformular from './pages/admin/Kontaktformular';
 
 // English pages
 import HomeEN from './pages/en/Home';
@@ -72,105 +65,47 @@ const App: React.FC = () => {
   }, [location, navigate]);
 
   return (
-    <AuthProvider>
-      <LanguageProvider>
-        <TixaeProvider>
-          <Routes>
-            {/* English routes */}
-            <Route path="/en" element={<HomeEN />} />
-            <Route path="/en/contact" element={<ContactEN />} />
-            <Route path="/en/about" element={<AboutEN />} />
-            <Route path="/en/privacy" element={<PrivacyEN />} />
-            <Route path="/en/terms" element={<TermsEN />} />
-            <Route path="/en/impressum" element={<ImpressumEN />} />
-            <Route path="/en/waitlist" element={<WaitlistEN />} />
-            <Route path="/en/faq" element={<FAQEN />} />
-            <Route path="/en/zkagent" element={<ZKAgentEN />} />
+    <LanguageProvider>
+      <TixaeProvider>
+        <Routes>
+          {/* English routes */}
+          <Route path="/en" element={<HomeEN />} />
+          <Route path="/en/contact" element={<ContactEN />} />
+          <Route path="/en/about" element={<AboutEN />} />
+          <Route path="/en/privacy" element={<PrivacyEN />} />
+          <Route path="/en/terms" element={<TermsEN />} />
+          <Route path="/en/impressum" element={<ImpressumEN />} />
+          <Route path="/en/waitlist" element={<WaitlistEN />} />
+          <Route path="/en/faq" element={<FAQEN />} />
+          <Route path="/en/zkagent" element={<ZKAgentEN />} />
 
-            {/* German routes */}
-            <Route path="/de" element={<HomeDE />} />
-            <Route path="/de/contact" element={<ContactDE />} />
-            <Route path="/de/about" element={<AboutDE />} />
-            <Route path="/de/privacy" element={<PrivacyDE />} />
-            <Route path="/de/terms" element={<TermsDE />} />
-            <Route path="/de/impressum" element={<ImpressumDE />} />
-            <Route path="/de/waitlist" element={<WaitlistDE />} />
-            <Route path="/de/faq" element={<FAQDE />} />
-            <Route path="/de/zkagent" element={<ZKAgentDE />} />
+          {/* German routes */}
+          <Route path="/de" element={<HomeDE />} />
+          <Route path="/de/contact" element={<ContactDE />} />
+          <Route path="/de/about" element={<AboutDE />} />
+          <Route path="/de/privacy" element={<PrivacyDE />} />
+          <Route path="/de/terms" element={<TermsDE />} />
+          <Route path="/de/impressum" element={<ImpressumDE />} />
+          <Route path="/de/waitlist" element={<WaitlistDE />} />
+          <Route path="/de/faq" element={<FAQDE />} />
+          <Route path="/de/zkagent" element={<ZKAgentDE />} />
 
-            {/* Turkish routes */}
-            <Route path="/tr" element={<HomeTR />} />
-            <Route path="/tr/contact" element={<ContactTR />} />
-            <Route path="/tr/about" element={<AboutTR />} />
-            <Route path="/tr/privacy" element={<PrivacyTR />} />
-            <Route path="/tr/terms" element={<TermsTR />} />
-            <Route path="/tr/impressum" element={<ImpressumTR />} />
-            <Route path="/tr/waitlist" element={<WaitlistTR />} />
-            <Route path="/tr/faq" element={<FAQTR />} />
-            <Route path="/tr/zkagent" element={<ZKAgentTR />} />
+          {/* Turkish routes */}
+          <Route path="/tr" element={<HomeTR />} />
+          <Route path="/tr/contact" element={<ContactTR />} />
+          <Route path="/tr/about" element={<AboutTR />} />
+          <Route path="/tr/privacy" element={<PrivacyTR />} />
+          <Route path="/tr/terms" element={<TermsTR />} />
+          <Route path="/tr/impressum" element={<ImpressumTR />} />
+          <Route path="/tr/waitlist" element={<WaitlistTR />} />
+          <Route path="/tr/faq" element={<FAQTR />} />
+          <Route path="/tr/zkagent" element={<ZKAgentTR />} />
 
-            {/* Admin routes */}
-            <Route path="/admin" element={<Login />} />
-            <Route
-              path="/admin/*"
-              element={
-                <ProtectedRoute>
-                  <Routes>
-                    <Route path="dashboard" element={<Dashboard />} />
-                    <Route path="demo/1" element={<Demo1 />} />
-                    <Route path="demo/2" element={<Demo2 />} />
-                  </Routes>
-                </ProtectedRoute>
-              }
-            />
-
-            {/* Language-specific admin routes */}
-            <Route path="/en/admin" element={<Login />} />
-            <Route path="/de/admin" element={<Login />} />
-            <Route path="/tr/admin" element={<Login />} />
-            <Route
-              path="/en/admin/*"
-              element={
-                <ProtectedRoute>
-                  <Routes>
-                    <Route path="dashboard" element={<Dashboard />} />
-                    <Route path="demo/1" element={<Demo1 />} />
-                    <Route path="demo/2" element={<Demo2 />} />
-                  </Routes>
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/de/admin/*"
-              element={
-                <ProtectedRoute>
-                  <Routes>
-                    <Route path="dashboard" element={<Dashboard />} />
-                    <Route path="demo/1" element={<Demo1 />} />
-                    <Route path="demo/2" element={<Demo2 />} />
-                  </Routes>
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/tr/admin/*"
-              element={
-                <ProtectedRoute>
-                  <Routes>
-                    <Route path="dashboard" element={<Dashboard />} />
-                    <Route path="demo/1" element={<Demo1 />} />
-                    <Route path="demo/2" element={<Demo2 />} />
-                  </Routes>
-                </ProtectedRoute>
-              }
-            />
-
-            {/* Catch-all route */}
-            <Route path="*" element={<HomeEN />} />
-          </Routes>
-        </TixaeProvider>
-      </LanguageProvider>
-    </AuthProvider>
+          {/* Catch-all route */}
+          <Route path="*" element={<HomeEN />} />
+        </Routes>
+      </TixaeProvider>
+    </LanguageProvider>
   );
 };
 
