@@ -10,6 +10,7 @@ import PricingSection from '../../components/PricingSection';
 import ComparisonTable from '../../components/ComparisonTable';
 import Footer from '../../components/Footer';
 import CTAButton from '../../components/CTAButton';
+import CountdownBanner from '../../components/CountdownBanner';
 
 const painPoints = [
   { icon: Clock, text: 'Customers wait too long for replies' },
@@ -147,8 +148,9 @@ const Home: React.FC = () => {
       </Helmet>
 
       <ParticleBackground />
+      <CountdownBanner language="en" />
       <Header />
-      
+
       {/* Problem Section */}
       <section id="problem" className="py-24 px-4 relative overflow-hidden">
         <div className="max-w-5xl mx-auto">

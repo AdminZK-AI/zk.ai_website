@@ -10,6 +10,7 @@ import PricingSection from '../../components/PricingSection';
 import ComparisonTable from '../../components/ComparisonTable';
 import Footer from '../../components/Footer';
 import CTAButton from '../../components/CTAButton';
+import CountdownBanner from '../../components/CountdownBanner';
 
 const painPoints = [
   { icon: Clock, text: 'Müşteriler yanıt için çok uzun bekliyor' },
@@ -148,6 +149,7 @@ const Home: React.FC = () => {
       </Helmet>
 
       <ParticleBackground />
+      <CountdownBanner language="tr" />
       <Header />
       
       {/* Problem Section */}
